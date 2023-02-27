@@ -1,0 +1,39 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+
+import { Modal } from 'accessible-astro-components';
+---
+
+<Layout title="Welcome to Astro.">
+	<main>
+		<button id="modal1-trigger">Open modal 1</button>
+		<button id="modal2-trigger">Open modal 2</button>
+	</main>
+	<Modal
+		triggerId="modal1-trigger"
+		title="Modal 1"
+	>
+		<p>Why hello, I be the <strong>first</strong> Modal.</p>
+	</Modal>
+	<Modal
+		triggerId="modal2-trigger"
+		title="Modal 2"
+		closeText="Cancel"
+	>
+		<p>Ah yes, and I be the <strong>second</strong> Modal.</p>
+		<!-- 
+			calls the closeModal function, you can also use this 
+			as a callback in your own function
+		-->
+		<button onclick="closeModal()">Confirm action</button>
+	</Modal>
+</Layout>
+
+<style>
+	main {
+		margin: auto;
+		padding: 1.5rem;
+		max-width: 60ch;
+	}
+</style>
